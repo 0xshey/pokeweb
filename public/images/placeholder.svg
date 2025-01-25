@@ -1,0 +1,19 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_22_10)">
+<mask id="mask0_22_10" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="1200">
+<rect width="1200" height="1200" fill="url(#paint0_radial_22_10)"/>
+</mask>
+<g mask="url(#mask0_22_10)">
+<path d="M602 0L602 1200M1200 602L0 602M488 760H711C737.51 760 759 738.51 759 712V489C759 462.49 737.51 441 711 441H488C461.49 441 440 462.49 440 489V712C440 738.51 461.49 760 488 760ZM356 934H843C892.706 934 933 893.706 933 844V357C933 307.294 892.706 267 843 267H356C306.294 267 266 307.294 266 357V844C266 893.706 306.294 934 356 934Z" stroke="#7E7E7E" stroke-width="4"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_22_10" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 600) rotate(90) scale(600)">
+<stop stop-color="#808080"/>
+<stop offset="0.96" stop-color="#737373" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="clip0_22_10">
+<rect width="1200" height="1200" fill="white"/>
+</clipPath>
+</defs>
+</svg>
