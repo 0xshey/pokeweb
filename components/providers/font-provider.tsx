@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { fontSans, fontMono } from "@/fonts/fonts";
+import { fontSans, fontMono, fontCondensed } from "@/fonts/fonts";
 
 export default function FontProvider({
 	children,
@@ -10,7 +10,8 @@ export default function FontProvider({
 		<div
 			className={cn(
 				fontSans.className, // default font
-				fontMono.variable
+				fontMono.variable,
+				fontCondensed.variable
 			)}
 		>
 			{children}

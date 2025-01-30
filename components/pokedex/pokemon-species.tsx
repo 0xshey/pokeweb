@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import P from "@/lib/pokeapi";
-import Pokemon from "./pokemon";
+import Pokemon from "./pokemon/pokemon";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -70,7 +70,12 @@ function PokemonSpecies({ id }: PokemonSpeciesProps) {
 							key={variety.pokemon.name}
 							value={variety.pokemon.name}
 						>
-							{variety.pokemon.name}
+							<span className="capitalize">
+								{variety.pokemon.name
+									.split("-")
+									.reverse()
+									.join(" ")}
+							</span>
 						</TabsTrigger>
 					))}
 				</TabsList>
