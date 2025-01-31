@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/drawer";
 
 import { Button } from "@/components/ui/button";
-import TeamPokemonEditorForm from "@/components/team-builder/team-pokemon-editor-form";
+import TeamPokemonEditorForm from "@/components/team-builder/team-pokemon-editor-form/form";
 
 // import { TeamPokemon as TeamPokemonType } from "@/lib/types";
 
@@ -32,7 +32,7 @@ export default function TeamPokemon({ pokemon }: { pokemon: any }) {
 								height={96}
 							/>
 						</div>
-						<div className="col-span-3 bg-red-500 flex items-center p-2">
+						<div className="col-span-3 flex items-center p-2">
 							<p className="text-lg capitalize">{pokemon.name}</p>
 						</div>
 						<div className="col-span-1">
@@ -42,7 +42,7 @@ export default function TeamPokemon({ pokemon }: { pokemon: any }) {
 				</DrawerTrigger>
 				<DrawerContent>
 					{/* Pokemon Editor */}
-					<DrawerHeader>
+					{/* <DrawerHeader>
 						<DrawerTitle>
 							Edit{" "}
 							<span className="capitalize">{pokemon.name}</span>
@@ -50,7 +50,7 @@ export default function TeamPokemon({ pokemon }: { pokemon: any }) {
 						<DrawerDescription>
 							This is the description
 						</DrawerDescription>
-					</DrawerHeader>
+					</DrawerHeader> */}
 
 					<div className="w-full px-4 max-h-[calc(80vh)] overflow-y-scroll">
 						<TeamPokemonEditorForm pokemon={pokemon} />
@@ -63,12 +63,7 @@ export default function TeamPokemon({ pokemon }: { pokemon: any }) {
 						))}
 					</ul> */}
 
-					<DrawerFooter>
-						<Button>Submit</Button>
-						<DrawerClose>
-							<Button variant="outline">Cancel</Button>
-						</DrawerClose>
-					</DrawerFooter>
+					<DrawerFooter></DrawerFooter>
 				</DrawerContent>
 			</Drawer>
 		</div>

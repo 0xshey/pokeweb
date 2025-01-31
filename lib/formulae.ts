@@ -1,13 +1,11 @@
-// Stat calculation formulae
-
 // Gen III+ Stat calculation formulae
 
-function calculateHPStat(base: number, iv: number, ev: number, level: number) {
-  return Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100 + level + 10);
+function calculateHPStat(base: number, iv: number, ev: number, level: number): number {
+	return Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100 + level + 10);
 }
 
-function calculateOtherStat(base: number, iv: number, ev: number, level: number) {
-  return Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100 + 5);
+function calculateOtherStat(base: number, iv: number, ev: number, level: number): number {
+	return Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100 + 5);
 }
 
 function calculateStat(type: string, base: number, iv: number, ev: number, level: number) {

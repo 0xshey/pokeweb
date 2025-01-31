@@ -1,4 +1,5 @@
 import { calculateStat } from "@/lib/formulae";
+import statAbbreviations from "@/data/extra/stat-abbreviations.json";
 
 // StatsTableProps
 interface StatsTableProps {
@@ -17,15 +18,6 @@ interface StatsTableProps {
 }
 
 export default function StatsTable({ stats }: StatsTableProps) {
-	const statAbbreviations = {
-		hp: "HP",
-		attack: "Atk",
-		defense: "Def",
-		"special-attack": "SpA",
-		"special-defense": "SpD",
-		speed: "Spe",
-	};
-
 	return (
 		<table className="w-full text-left">
 			<tbody>
