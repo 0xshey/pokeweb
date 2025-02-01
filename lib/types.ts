@@ -20,3 +20,12 @@ export type Team = {
 	id: number;
 	slots: [TeamPokemon];
 };
+
+export type StatsTable = {
+	hp: number;
+	atk: number;
+	def: number;
+	spa: number;
+	spd: number;
+	spe: number;
+};

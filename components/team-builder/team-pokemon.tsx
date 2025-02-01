@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/drawer";
 
 import { Button } from "@/components/ui/button";
-import TeamPokemonEditorForm from "@/components/team-builder/team-pokemon-editor-form/form";
+import TeamPokemonEditor from "@/components/team-builder/team-pokemon-editor/editor";
 
 // import { TeamPokemon as TeamPokemonType } from "@/lib/types";
 
@@ -53,7 +53,7 @@ export default function TeamPokemon({ pokemon }: { pokemon: any }) {
 					</DrawerHeader> */}
 
 					<div className="w-full px-4 max-h-[calc(80vh)] overflow-y-scroll">
-						<TeamPokemonEditorForm pokemon={pokemon} />
+						<TeamPokemonEditor pokemon={pokemon} />
 					</div>
 
 					{/* <ul>
