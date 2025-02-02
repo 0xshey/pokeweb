@@ -37,6 +37,7 @@ export default function TeamPokemonPreview({
 				{/* <pre className="max-h-80 overflow-y-scroll no-scrollbar">
 					{JSON.stringify(data, null, 2)}
 				</pre> */}
+
 				<Image
 					src={
 						pokemon.sprites.other["official-artwork"][
@@ -46,6 +47,7 @@ export default function TeamPokemonPreview({
 					alt={pokemon.name}
 					height={240}
 					width={240}
+
 					// layout="cover"
 				/>
 			</div>
@@ -59,7 +61,15 @@ export default function TeamPokemonPreview({
 					"speed",
 				].map((statName) => (
 					<div key={statName} className="flex flex-col items-center">
-						<p className="text-xs">{statAbbreviations[statName]}</p>
+						<p className="text-xs">
+							{statAbbreviations[statName].toLowerCase()}
+							IV ={" "}
+							{
+								data.ivs[
+									statAbbreviations[statName].toLowerCase()
+								]
+							}
+						</p>
 						<p className="font-bold">
 							{calculateStat(
 								statName,
@@ -69,7 +79,9 @@ export default function TeamPokemonPreview({
 											stat.stat.name === statName
 									).base_stat
 								),
-								31,
+								data.ivs[
+									statAbbreviations[statName].toLowerCase()
+								] || 0,
 								252,
 								Math.floor(data.level),
 								data.nature

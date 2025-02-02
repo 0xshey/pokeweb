@@ -30,11 +30,11 @@ import StatsTable from "./stats-table";
 
 // write the stat abbreviations
 
-interface PokemonProps {
+interface PokemonDexEntryProps {
 	id: string;
 }
 
-function Pokemon({ id }: PokemonProps) {
+function PokemonDexEntry({ id }: PokemonDexEntryProps) {
 	const [pokemon, setPokemon] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -103,7 +103,7 @@ function Pokemon({ id }: PokemonProps) {
 
 							<div className="w-full grid grid-cols-5 gap-4">
 								<div className="col-span-3">
-									<div className="w-full flex justify-center items-center rounded border">
+									<div className="w-full flex justify-center items-center rounded">
 										<Image
 											src={
 												pokemon.sprites.other[
@@ -122,21 +122,7 @@ function Pokemon({ id }: PokemonProps) {
 								</div>
 							</div>
 							<StatsTable stats={pokemon.stats} />
-
-							{/* Moves */}
-							<div className="w-full">
-								<h2 className="text-2xl font-medium">Moves</h2>
-								<pre>
-									{JSON.stringify(pokemon.sprites, null, 2)}
-								</pre>
-							</div>
-
-							{/* <pre>{JSON.stringify(pokemon.forms, null, 2)}</pre> */}
 						</div>
-						<pre className="mt-20 border-t">
-							{Object.keys(pokemon).join(",\n")}
-						</pre>
-						{/* <pre>{JSON.stringify(pokemon.stats, null, 2)}</pre> */}
 					</CardContent>
 				</Card>
 			)}
@@ -192,4 +178,4 @@ function InformationTable({ pokemon }) {
 	);
 }
 
-export default Pokemon;
+export default PokemonDexEntry;

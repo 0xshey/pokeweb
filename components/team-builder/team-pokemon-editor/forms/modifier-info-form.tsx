@@ -70,7 +70,7 @@ export default function ModifierInfoForm({
 
 						<Select
 							onValueChange={field.onChange}
-							defaultValue={field.value}
+							defaultValue={potentialAbilities[0].ability.name}
 						>
 							<FormControl>
 								<SelectTrigger>

@@ -16,16 +16,24 @@ function AbilityChip({
 	label,
 	id,
 	hidden,
+	className,
+	size = "md",
 }: {
 	label?: string;
 	id: string;
 	hidden?: boolean;
+	className?: string;
+	size?: "sm" | "md";
 }) {
+	const fontSize = size === "sm" ? "text-sm" : "text-base";
+
 	return (
 		<TooltipProvider>
 			<Tooltip>
 				<TooltipTrigger>
-					<div className="flex items-center gap-2">
+					<div
+						className={`flex items-center gap-2 ${fontSize} ${className}`}
+					>
 						{hidden && <EyeNoneIcon />}
 						<Link
 							href={"#"}

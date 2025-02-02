@@ -26,42 +26,26 @@ export default function TeamPokemon({ pokemon }: { pokemon: any }) {
 					<div className="grid grid-cols-5">
 						<div className="col-span-1">
 							<Image
-								src={pokemon.sprites.front_default}
+								src={
+									pokemon.sprites.other["official-artwork"][
+										"front_default"
+									]
+								}
 								alt={pokemon.name}
-								width={96}
-								height={96}
+								width={110}
+								height={110}
+								quality={100}
 							/>
 						</div>
 						<div className="col-span-3 flex items-center p-2">
 							<p className="text-lg capitalize">{pokemon.name}</p>
 						</div>
-						<div className="col-span-1">
-							<Button variant="outline">Edit</Button>
-						</div>
 					</div>
 				</DrawerTrigger>
 				<DrawerContent>
-					{/* Pokemon Editor */}
-					{/* <DrawerHeader>
-						<DrawerTitle>
-							Edit{" "}
-							<span className="capitalize">{pokemon.name}</span>
-						</DrawerTitle>
-						<DrawerDescription>
-							This is the description
-						</DrawerDescription>
-					</DrawerHeader> */}
-
 					<div className="w-full px-4 max-h-[calc(80vh)] overflow-y-scroll">
 						<TeamPokemonEditor pokemon={pokemon} />
 					</div>
-
-					{/* <ul>
-						<li>KEYS:</li>
-						{Object.keys(pokemon).map((key) => (
-							<li key={key}>{key}</li>
-						))}
-					</ul> */}
 
 					<DrawerFooter></DrawerFooter>
 				</DrawerContent>

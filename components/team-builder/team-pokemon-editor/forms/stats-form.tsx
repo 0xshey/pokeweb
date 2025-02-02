@@ -60,9 +60,9 @@ export default function StatsForm({
 													min={0}
 													max={252}
 													defaultValue={[field.value]}
-													onValueChange={
-														field.onChange
-													}
+													onValueChange={(vals) => {
+														field.onChange(vals[0]);
+													}}
 												/>
 												<p className="w-16 text-center">
 													{field.value}
@@ -82,7 +82,12 @@ export default function StatsForm({
 										<FormControl>
 											<Input
 												type="number"
-												{...field}
+												defaultValue={field.value}
+												onChange={(e) => {
+													field.onChange(
+														Number(e.target.value)
+													);
+												}}
 												min={0}
 												max={31}
 											/>

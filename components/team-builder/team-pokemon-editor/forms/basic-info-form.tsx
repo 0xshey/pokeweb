@@ -48,7 +48,9 @@ export default function BasicInfoForm({ form }: { form: any }) {
 								step={1}
 								max={100}
 								defaultValue={[field.value]}
-								onValueChange={field.onChange}
+								onValueChange={(vals) => {
+									field.onChange(vals[0]);
+								}}
 							/>
 						</FormControl>
 					</FormItem>
@@ -60,7 +62,10 @@ export default function BasicInfoForm({ form }: { form: any }) {
 				render={({ field }) => (
 					<FormItem>
 						<FormControl>
-							<Select {...field}>
+							<Select
+								onValueChange={field.onChange}
+								defaultValue={field.value}
+							>
 								<SelectTrigger>
 									<SelectValue>
 										{field.value || "Select Tera Type"}

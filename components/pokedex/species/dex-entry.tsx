@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import P from "@/lib/pokeapi";
-import Pokemon from "./pokemon/pokemon";
+import PokemonDexEntry from "@/components/pokedex/pokemon/dex-entry";
+import PokemonSimpleCard from "@/components/pokedex/pokemon/simple-card";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -9,7 +10,7 @@ interface PokemonSpeciesProps {
 	id: string;
 }
 
-function PokemonSpecies({ id }: PokemonSpeciesProps) {
+function SpeciesDexEntry({ id }: PokemonSpeciesProps) {
 	const [species, setSpecies] = useState(null);
 	const [defaultVarietyId, setDefaultVarietyId] = useState<string | null>(
 		null
@@ -62,7 +63,7 @@ function PokemonSpecies({ id }: PokemonSpeciesProps) {
 				defaultValue={
 					defaultVarietyId || species.varieties[0].pokemon.name
 				}
-				className="min-w-full flex flex-col"
+				className="min-w-full flex flex-col items-center"
 			>
 				<TabsList className="place-self-center">
 					{species.varieties.map((variety) => (
@@ -83,8 +84,10 @@ function PokemonSpecies({ id }: PokemonSpeciesProps) {
 					<TabsContent
 						key={variety.pokemon.name}
 						value={variety.pokemon.name}
+						className="w-full max-w-4xl"
 					>
-						<Pokemon id={variety.pokemon.name} />
+						<PokemonDexEntry id={variety.pokemon.name} />
+						<PokemonSimpleCard id={variety.pokemon.name} />
 					</TabsContent>
 				))}
 			</Tabs>
@@ -92,4 +95,4 @@ function PokemonSpecies({ id }: PokemonSpeciesProps) {
 	);
 }
 
-export default PokemonSpecies;
+export default SpeciesDexEntry;
