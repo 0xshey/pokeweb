@@ -6,12 +6,13 @@ function TypeChip({
 	size = "md",
 }: {
 	type: string | undefined;
-	size?: "sm" | "md" | "lg";
+	size?: "icon" | "sm" | "md" | "lg";
 }) {
 	const sizeClasses = {
 		sm: "px-1 py-0.5 min-w-24 text-xs",
 		md: "px-2 py-1 min-w-28 text-lg",
 		lg: "px-3 py-1.5 min-w-36 text-2xl",
+		icon: "p-1 rounded-full",
 	};
 	function getColor(type: string | undefined) {
 		if (!type) return "#A8A8A8"; // Medium gray as fallback for undefined
@@ -28,11 +29,31 @@ function TypeChip({
 				<Image
 					src={`/images/type-icons/${type}.svg`}
 					alt={type}
-					width={size === "sm" ? 16 : size === "lg" ? 24 : 20}
-					height={size === "sm" ? 16 : size === "lg" ? 24 : 20}
+					width={
+						size === "sm" || size === "icon"
+							? 16
+							: size === "lg"
+							? 24
+							: size === "md"
+							? 20
+							: 16
+					}
+					height={
+						size === "sm" || size === "icon"
+							? 16
+							: size === "lg"
+							? 24
+							: size === "md"
+							? 20
+							: 16
+					}
 				/>
 			)}
-			<span className="font-mono uppercase font-bold">
+			<span
+				className={`font-mono uppercase font-bold ${
+					size == "icon" && "hidden"
+				}`}
+			>
 				{type || "???"}
 			</span>
 		</div>

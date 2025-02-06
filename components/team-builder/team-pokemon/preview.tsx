@@ -4,7 +4,7 @@ import { StarIcon } from "@radix-ui/react-icons";
 import { calculateStat } from "@/lib/formulae";
 import statAbbreviations from "@/data/extra/stat-abbreviations.json";
 
-import { FormTypePokemon } from "@/components/team-builder/team-pokemon-editor/forms";
+import { FormTypePokemon } from "@/components/team-builder/team-pokemon/forms";
 
 interface TeamPokemonPreviewProps {
 	pokemon: any;

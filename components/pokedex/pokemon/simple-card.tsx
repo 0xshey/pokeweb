@@ -7,8 +7,7 @@ import P from "@/lib/pokeapi";
 
 import { TypeChip } from "@/components/pokedex/type";
 import { AbilityChip } from "@/components/pokedex/ability";
-
-import ODChart from "../stats/od-chart";
+import StatsChart from "@/components/stats/stats-chart";
 
 interface PokemonSimpleCardProps {
 	id: string;
@@ -39,14 +38,16 @@ function PokemonSimpleCard({ id }: PokemonSimpleCardProps) {
 	if (error) return <div>Error: {error.message}</div>;
 
 	return (
-		<div className="w-full grid grid-cols-8 items-center border rounded px-4 py-1 gap-4 mt-16">
-			<div className="col-span-1 flex justify-center">
+		<div className="w-full grid grid-cols-10 items-center border rounded-lg px-2 py-2 gap-2">
+			<div className="col-span-2 flex justify-center">
 				<Image
-					src={pokemon.sprites.front_default}
+					src={
+						pokemon.sprites.other["official-artwork"].front_default
+					}
 					alt={pokemon.name}
-					width={72}
-					height={72}
-					quality={100}
+					width={96}
+					height={96}
+					quality={20}
 					className=""
 				/>
 			</div>
@@ -55,7 +56,7 @@ function PokemonSimpleCard({ id }: PokemonSimpleCardProps) {
 				<p className="text-xl font-medium capitalize">
 					{pokemon.name.split("-").reverse().join(" ")}
 				</p>
-				<div className="flex items-center gap-2">
+				<div className="flex gap-2 flex-col md:flex-row w-fit">
 					{pokemon.types.map((type) => (
 						<TypeChip
 							key={type.type.name}
@@ -66,7 +67,7 @@ function PokemonSimpleCard({ id }: PokemonSimpleCardProps) {
 				</div>
 			</div>
 
-			<div className="col-span-2">
+			<div className="col-span-2 ">
 				<div className="flex flex-col items-start gap-2">
 					{pokemon.abilities.map((ability) => (
 						<AbilityChip
@@ -78,14 +79,19 @@ function PokemonSimpleCard({ id }: PokemonSimpleCardProps) {
 					))}
 				</div>
 			</div>
-			<div className="col-span-1">
+
+			<div className="col-span-3  flex justify-center h-full">
+				<StatsChart stats={pokemon.stats} />
+			</div>
+
+			{/* <div className="col-span-2 flex justify-center">
 				<ODChart
 					atk={pokemon.stats[1].base_stat}
 					def={pokemon.stats[2].base_stat}
 					spatk={pokemon.stats[3].base_stat}
 					spdef={pokemon.stats[4].base_stat}
 				/>
-			</div>
+			</div> */}
 		</div>
 	);
 }

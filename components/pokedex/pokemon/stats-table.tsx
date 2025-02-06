@@ -39,7 +39,7 @@ export default function StatsTable({ stats }: StatsTableProps) {
 											(stat.base_stat / 255) * 100
 										}%`,
 									}}
-								></div>
+								/>
 							</div>
 						</td>
 						<td className="min-w-12 text-right">
